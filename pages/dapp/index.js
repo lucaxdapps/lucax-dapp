@@ -1,10 +1,7 @@
+import MasterLayout from "@/components/common/MasterLayout";
+
 function Index() {
-  return (
-    <div>
-      <h1>Dapp Page</h1>
-      {/* Add your content here */}
-    </div>
-  );
+  return <MasterLayout></MasterLayout>;
 }
 
 export default Index;
