@@ -63,12 +63,12 @@ const ToggleButton = styled(IconButton)(({ theme }) => ({
   position: "fixed", // Change to fixed positioning
   top: 70, // Position it below the logo
   zIndex: 1300, // Higher z-index to ensure visibility over other elements
-  backgroundColor: "#1a73e8",
+  backgroundColor: "#35374B",
   color: "#fff",
   borderRadius: "50%",
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
   "&:hover": {
-    backgroundColor: "#185abc",
+    backgroundColor: "#121212",
   },
   "& .MuiSvgIcon-root": {
     fontSize: "1.5rem", // Adjust icon size

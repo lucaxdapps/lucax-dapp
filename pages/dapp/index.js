@@ -1,10 +1,10 @@
 import MasterLayout from "@/components/common/MasterLayout";
+import WolfPacks from "@/components/different/dapp/WolfPacks";
 
 function Index() {
   return (
     <MasterLayout>
-      <h1>My DApp</h1>
-      <p>My decentralized application</p>
+      <WolfPacks />
     </MasterLayout>
   );
 }

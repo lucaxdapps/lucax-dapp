@@ -5,7 +5,9 @@ import CardComponent from "../templates/CardComponent";
 const HighlightsContainer = styled(Box)(({ theme }) => ({
   maxWidth: "1200px",
   margin: "0 auto",
-  padding: theme.spacing(2),
+  padding: theme.spacing(0),
+  paddingBottom: theme.spacing(2),
+  textAlign: "left",
 }));
 
 const Highlights = () => {
