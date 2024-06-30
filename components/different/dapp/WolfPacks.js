@@ -69,7 +69,9 @@ const WolfPacks = () => (
       />
     </ImageContainer>
     <ContentContainer>
-      <Typography variant="h3">The Wolfpacks</Typography>
+      <Typography variant="h3" style={{ fontWeight: "600" }}>
+        The Wolfpacks
+      </Typography>
       <Typography variant="body1">
         Explore the Wolfpacks and unite with other wolves to take advantage of
         our unique team-staking model that takes yield generation to new
@@ -81,7 +83,9 @@ const WolfPacks = () => (
     </ContentContainer>
     <StatsContainer>
       <Typography variant="h6">Total Wolfpacks</Typography>
-      <Typography variant="h3">210</Typography>
+      <Typography variant="h3" style={{ fontWeight: "600" }}>
+        210
+      </Typography>
     </StatsContainer>
   </CardContainer>
 );

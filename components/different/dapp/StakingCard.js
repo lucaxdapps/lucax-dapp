@@ -3,12 +3,12 @@ import { styled } from "@mui/material/styles";
 
 const CardContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  padding: theme.spacing(2),
+  padding: theme.spacing(4),
   flexDirection: "column",
   justifyContent: "space-between",
-  backgroundImage: 'url("/dapp/index/wolfpack-bg.png")',
-  backgroundSize: "cover",
-  borderRadius: "8px",
+  backgroundImage: 'url("/dapp/index/stake-bg.png")',
+  backgroundSize: "100% 100%",
+  borderRadius: "20px",
   color: "#fff",
   width: "100%",
   maxWidth: "1200px",
@@ -47,11 +47,29 @@ const StatsContainer = styled(Box)(({ theme }) => ({
 const StakingCard = () => (
   <CardContainer>
     <StatsContainer>
-      <Typography variant="h6">Total $USDC Staked</Typography>
-      <Typography variant="h3">7,099,464</Typography>
+      <Typography variant="h4">Total $USDC Staked</Typography>
+      <Typography variant="h2" style={{ fontWeight: "600" }}>
+        7,099,464
+      </Typography>
     </StatsContainer>
+    <Box
+      sx={{
+        flex: "1",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <img
+        src="/path-to-usdc-icon.png"
+        alt="USDC Icon"
+        style={{ display: "none" }}
+      />
+    </Box>
     <ContentContainer>
-      <Typography variant="h4">Stake</Typography>
+      <Typography variant="h3" style={{ fontWeight: "600" }}>
+        Stake
+      </Typography>
       <Typography variant="body1">
         Stake your $USDC with Wolf Capital. Experience a dynamic yield model,
         driven by real trading profits. Profit distributions are made weekly,
@@ -64,20 +82,6 @@ const StakingCard = () => (
         START STAKING
       </Button>
     </ContentContainer>
-    <Box
-      sx={{
-        flex: "1",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <img
-        src="/path-to-usdc-icon.png"
-        alt="USDC Icon"
-        style={{ width: "100px" }}
-      />
-    </Box>
   </CardContainer>
 );
 
