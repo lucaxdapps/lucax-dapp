@@ -1,0 +1,75 @@
+.producer-panel-container {
+  padding: 9.6px;
+  background: linear-gradient(
+    102.49deg,
+    rgb(16, 16, 16) 4.28%,
+    rgb(36, 36, 36) 61.94%
+  );
+  border: 1px solid rgb(60, 60, 60);
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 10px 15px;
+  border-radius: 20px;
+  margin: 16px 0;
+}
+
+.panel-title {
+  margin: 16px 0;
+  color: #ffa500;
+}
+
+.styled-table-container {
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 16px;
+}
+
+.styled-table-cell {
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.header-table-cell {
+  color: #ffa500;
+  font-weight: bold;
+}
+
+.operation-button {
+  color: #fff;
+}
+
+.red-button {
+  background-color: #d32f2f;
+}
+
+.red-button:hover {
+  background-color: #b71c1c;
+}
+
+.green-button {
+  background-color: #388e3c;
+}
+
+.green-button:hover {
+  background-color: #2e7d32;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.pagination-item {
+  color: #fff;
+}
+
+.pagination-item.Mui-selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pagination-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

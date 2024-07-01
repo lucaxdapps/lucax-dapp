@@ -8,7 +8,6 @@ import { styled } from "@mui/material/styles";
 const StakeContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
   background:
     "linear-gradient(102.49deg, rgb(16, 16, 16) 4.28%, rgb(36, 36, 36) 61.94%)",
   border: "1px solid rgb(60, 60, 60)",
