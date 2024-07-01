@@ -43,12 +43,14 @@ const ActionButton = styled(Button)(({ theme }) => ({
   color: "#fff",
   borderRadius: "20px",
   minWidth: "120px",
+  padding: "10px 20px",
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
   "&:hover": {
     backgroundColor: "#444",
   },
 }));
 
-const Portfolio = () => (
+const PortfolioComponent = () => (
   <PortfolioContainer>
     <Typography variant="h6" sx={{ marginBottom: "16px" }}>
       Your Staking Portfolio
@@ -124,15 +126,19 @@ const Portfolio = () => (
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-around",
+        width: "80%",
+        margin: "0 auto",
+        borderRadius: "40px",
+        backgroundColor: "#333",
+        padding: "8px",
+        justifyContent: "space-between",
         marginTop: "16px",
       }}
     >
       <ActionButton>UNSTAKE ALL</ActionButton>
-      <ActionButton>MERGE</ActionButton>
       <ActionButton>CLAIM</ActionButton>
     </Box>
   </PortfolioContainer>
 );
 
-export default Portfolio;
+export default PortfolioComponent;
