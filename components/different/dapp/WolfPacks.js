@@ -3,15 +3,16 @@ import { styled } from "@mui/material/styles";
 
 const CardContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  padding: theme.spacing(2),
+  padding: theme.spacing(4),
   flexDirection: "column",
   justifyContent: "space-between",
   backgroundImage: 'url("/dapp/index/wolfpack-bg.png")',
   backgroundSize: "100% 100%",
-  borderRadius: "8px",
+  borderRadius: "20px",
   color: "#fff",
   width: "100%",
   maxWidth: "1200px",
+  marginBottom: theme.spacing(2),
   [theme.breakpoints.up("sm")]: {
     flexDirection: "row",
   },

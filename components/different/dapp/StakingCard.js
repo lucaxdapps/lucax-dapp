@@ -12,6 +12,7 @@ const CardContainer = styled(Box)(({ theme }) => ({
   color: "#fff",
   width: "100%",
   maxWidth: "1200px",
+  marginBottom: theme.spacing(6),
   [theme.breakpoints.up("sm")]: {
     flexDirection: "row",
   },
@@ -77,7 +78,38 @@ const StakingCard = () => (
       </Typography>
       <Button
         variant="contained"
-        sx={{ marginTop: "16px", backgroundColor: "#1a73e8", color: "#fff" }}
+        sx={{
+          display: "inline-flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          boxSizing: "border-box",
+          WebkitTapHighlightColor: "transparent",
+          outline: 0,
+          border: 0,
+          margin: "30px 0 0",
+          cursor: "pointer",
+          userSelect: "none",
+          verticalAlign: "middle",
+          appearance: "none",
+          textDecoration: "none",
+          fontWeight: 500,
+          lineHeight: 1.75,
+          letterSpacing: "0.02857em",
+          textTransform: "uppercase",
+          minWidth: "64px",
+          padding: "6px 8px",
+          transition:
+            "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+          background:
+            "linear-gradient(135deg, rgb(40, 40, 40) 0%, rgb(69, 69, 69) 62.29%, rgb(124, 124, 124) 100%)",
+          boxShadow: "rgba(0, 0, 0, 0.5) 0px 3.83199px 10.538px",
+          borderRadius: "10px",
+          fontSize: "14px",
+          width: "190px",
+          color: "#fff",
+          textAlign: "center",
+        }}
       >
         START STAKING
       </Button>

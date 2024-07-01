@@ -9,7 +9,7 @@ const drawerWidthClosed = 100;
 const MainContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
-  backgroundColor: "#363636", // Dark background
+  backgroundColor: "#131313", // Dark background
   width: "100%",
   minHeight: "100vh",
   padding: theme.spacing(3),
