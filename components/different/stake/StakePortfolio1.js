@@ -55,7 +55,16 @@ const StakePortfolio1 = () => (
     <Typography variant="h6" sx={{ marginBottom: "16px", color: "#FFA500" }}>
       YOUR STAKE # 01
     </Typography>
-    <Box sx={{ display: "flex" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: {
+          xs: "column",
+          sm: "column",
+          md: "row",
+        },
+      }}
+    >
       <Grid container spacing={2} sx={{ flex: 1 }}>
         <Grid item xs={6} sm={4}>
           <InfoContainer>
@@ -140,7 +149,11 @@ const StakePortfolio1 = () => (
         sx={{
           display: "flex",
           flex: "none",
-          flexDirection: "column",
+          flexDirection: {
+            xs: "row",
+            sm: "row",
+            md: "column",
+          },
           justifyContent: "center",
           marginTop: "16px",
         }}

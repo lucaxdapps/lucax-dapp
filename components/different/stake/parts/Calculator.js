@@ -46,7 +46,9 @@ const CalculatorComponent = () => (
         alignItems: "center",
       }}
     >
-      <Typography variant="h6">Calculator</Typography>
+      <Typography sx={{ color: "#FFA500" }} variant="h6">
+        Calculator
+      </Typography>
       <Tooltip title="Info">
         <IconButton>
           <InfoIcon style={{ color: "#FFFFFF" }} />
@@ -65,7 +67,7 @@ const CalculatorComponent = () => (
         <StyledTextField variant="outlined" placeholder="0.00" />
       </Box>
       <Box sx={{ flex: 1, marginLeft: "8px" }}>
-        <Typography variant="body2">Weekly %</Typography>
+        <Typography variant="body2">Daily %</Typography>
         <StyledTextField variant="outlined" placeholder="0.00" />
       </Box>
     </Box>

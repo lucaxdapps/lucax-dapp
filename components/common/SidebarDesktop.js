@@ -24,6 +24,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Link from "next/link";
 import { useState } from "react";
 
 const drawerWidthOpen = 300;
@@ -44,7 +45,7 @@ const SidebarContainer = styled(Drawer)(({ theme }) => ({
 
 const SidebarButton = styled(Button)(({ theme }) => ({
   margin: theme.spacing(1, 0),
-  backgroundColor: "#1a73e8",
+  backgroundColor: "#FFA500",
   color: "#fff",
   "&:hover": {
     backgroundColor: "#185abc",
@@ -75,7 +76,7 @@ const ToggleButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const Sidebar = () => {
+const SidebarDesktop = () => {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
 
@@ -125,50 +126,92 @@ const Sidebar = () => {
             </ToggleButton>
             <Divider />
             {!open && (
-              <ListItem button>
-                <SidebarIcon>
-                  <AccountBalanceWalletOutlined />
-                </SidebarIcon>
-              </ListItem>
+              <Link
+                style={{ textDecoration: "none" }}
+                href="/dapp/stake/#"
+                passHref
+              >
+                <ListItem button component="a">
+                  <SidebarIcon>
+                    <AccountBalanceWalletOutlined />
+                  </SidebarIcon>
+                </ListItem>
+              </Link>
             )}
             {open && (
-              <ListItem button>
-                <SidebarButton variant="contained" fullWidth>
-                  Connect Wallet
-                </SidebarButton>
-              </ListItem>
+              <Link
+                style={{ textDecoration: "none" }}
+                href="/dapp/stake/#"
+                passHref
+              >
+                <ListItem button component="a">
+                  <SidebarButton variant="contained" fullWidth>
+                    Connect Wallet
+                  </SidebarButton>
+                </ListItem>
+              </Link>
             )}
             <Divider />
-            <ListItem button>
-              <SidebarIcon>
-                <Dashboard />
-              </SidebarIcon>
-              {open && <ListItemText primary="Dashboard" />}
-            </ListItem>
-            <ListItem button>
-              <SidebarIcon>
-                <AccountBalanceWallet />
-              </SidebarIcon>
-              {open && <ListItemText primary="Staking" />}
-            </ListItem>
-            <ListItem button>
-              <SidebarIcon>
-                <Group />
-              </SidebarIcon>
-              {open && <ListItemText primary="Wolfpacks" />}
-            </ListItem>
-            <ListItem button>
-              <SidebarIcon>
-                <SportsEsports />
-              </SidebarIcon>
-              {open && <ListItemText primary="Weekly Battles" />}
-            </ListItem>
-            <ListItem button>
-              <SidebarIcon>
-                <LocalOffer />
-              </SidebarIcon>
-              {open && <ListItemText primary="Alpha NFTs" />}
-            </ListItem>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/stake/#"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <Dashboard />
+                </SidebarIcon>
+                {open && <ListItemText primary="Dashboard" />}
+              </ListItem>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/stake"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <AccountBalanceWallet />
+                </SidebarIcon>
+                {open && <ListItemText primary="Staking" />}
+              </ListItem>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/vaultproducer"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <Group />
+                </SidebarIcon>
+                {open && <ListItemText primary="Vault Producer" />}
+              </ListItem>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/battles"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <SportsEsports />
+                </SidebarIcon>
+                {open && <ListItemText primary="Battles" />}
+              </ListItem>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/nfts"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <LocalOffer />
+                </SidebarIcon>
+                {open && <ListItemText primary="NFTs" />}
+              </ListItem>
+            </Link>
             <ListItem button onClick={handleExpandClick}>
               <SidebarIcon>
                 <MoreHoriz />
@@ -178,18 +221,30 @@ const Sidebar = () => {
             </ListItem>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <ListItem button>
-                  <SidebarIcon>
-                    <MoreHoriz />
-                  </SidebarIcon>
-                  {open && <ListItemText primary="Option 1" />}
-                </ListItem>
-                <ListItem button>
-                  <SidebarIcon>
-                    <MoreHoriz />
-                  </SidebarIcon>
-                  {open && <ListItemText primary="Option 2" />}
-                </ListItem>
+                <Link
+                  style={{ textDecoration: "none", color: "#FFFFFF" }}
+                  href="/dapp/stake/#"
+                  passHref
+                >
+                  <ListItem button component="a">
+                    <SidebarIcon>
+                      <MoreHoriz />
+                    </SidebarIcon>
+                    {open && <ListItemText primary="Option 1" />}
+                  </ListItem>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "#FFFFFF" }}
+                  href="/dapp/stake/#"
+                  passHref
+                >
+                  <ListItem button component="a">
+                    <SidebarIcon>
+                      <MoreHoriz />
+                    </SidebarIcon>
+                    {open && <ListItemText primary="Option 2" />}
+                  </ListItem>
+                </Link>
               </List>
             </Collapse>
           </List>
@@ -199,4 +254,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarDesktop;

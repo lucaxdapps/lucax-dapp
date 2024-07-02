@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import CalculatorComponent from "./parts/Calculator";
 import StakeComponent from "./parts/Stake";
@@ -29,16 +29,16 @@ const FormContainer = styled(Box)(({ theme }) => ({
 }));
 
 const Deposit = () => (
-  <Box sx={{ display: "flex" }}>
-    <Box sx={{ padding: "10px", width: "100%" }}>
+  <Grid container spacing={2}>
+    <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
       <StakeComponent />
       <VaultProducerComponent />
-    </Box>
+    </Grid>
 
-    <Box sx={{ padding: "10px", width: "100%" }}>
+    <Grid Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
       <CalculatorComponent />
-    </Box>
-  </Box>
+    </Grid>
+  </Grid>
 );
 
 export default Deposit;

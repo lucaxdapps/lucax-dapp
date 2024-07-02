@@ -1,7 +1,7 @@
-import { Box, CssBaseline } from "@mui/material";
+import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Highlights from "./Highlights";
-import Sidebar from "./Sidebar";
+import SidebarDesktop from "./SidebarDesktop";
 
 const drawerWidthOpen = 300;
 const drawerWidthClosed = 100;
@@ -23,10 +23,13 @@ const ContentContainer = styled(Box)(({ theme }) => ({
 }));
 
 const MasterLayout = ({ children }) => {
+  const theme = useTheme();
+  const isLargeOrLarger = useMediaQuery(theme.breakpoints.up("lg"));
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Sidebar />
+      {isLargeOrLarger && <SidebarDesktop />}
       <MainContainer>
         <ContentContainer>
           <Highlights />

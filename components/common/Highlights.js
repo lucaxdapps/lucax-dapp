@@ -14,16 +14,16 @@ const Highlights = () => {
   return (
     <HighlightsContainer>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={6} md={3}>
           <CardComponent title="TOTAL INVESTMENTS" value="$0" />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={6} md={3}>
           <CardComponent title="TOTAL STAKED" value="$0" />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={6} md={3}>
           <CardComponent title="TOTAL USERS" value="0" />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={6} md={3}>
           <CardComponent title="TOTAL WOLFPACKS" value="0" />
         </Grid>
       </Grid>

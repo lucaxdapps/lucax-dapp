@@ -9,20 +9,21 @@ const CardContainer = styled(Box)(({ theme }) => ({
   boxShadow: "rgba(0, 0, 0, 0.5) 5px 10px 15px",
   borderRadius: "20px",
   padding: "16px",
-  padding: theme.spacing(2),
   color: "#fff",
   minWidth: "200px",
   minHeight: "100px",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
+  justifyContent: "start",
+  alignItems: "start",
 }));
 
 const CardComponent = ({ title, value }) => (
   <CardContainer>
-    <Typography variant="h6">{title}</Typography>
-    <Typography variant="h4">{value}</Typography>
+    <Typography sx={{ color: "#FFA500" }} variant="h6">
+      {title}
+    </Typography>
+    <Typography variant="h5">{value}</Typography>
   </CardContainer>
 );
 

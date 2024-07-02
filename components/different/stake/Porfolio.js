@@ -22,6 +22,10 @@ const PortfolioContainer = styled(Box)(({ theme }) => ({
 
 const InfoContainer = styled(Box)(({ theme }) => ({
   display: "flex",
+  flexDirection: {
+    xs: "column",
+    sm: "row",
+  },
   alignItems: "center",
   marginBottom: theme.spacing(2),
 }));
@@ -52,7 +56,7 @@ const ActionButton = styled(Button)(({ theme }) => ({
 
 const PortfolioComponent = () => (
   <PortfolioContainer>
-    <Typography variant="h6" sx={{ marginBottom: "16px" }}>
+    <Typography variant="h6" sx={{ marginBottom: "16px", color: "#FFA500" }}>
       Your Staking Portfolio
     </Typography>
     <Grid container spacing={2}>
@@ -62,7 +66,9 @@ const PortfolioComponent = () => (
             <AttachMoneyIcon />
           </InfoIcon>
           <Box>
-            <Typography variant="body2">Total Deposited</Typography>
+            <Typography sx={{ color: "#FFA500" }} variant="body2">
+              Total Deposited
+            </Typography>
             <Typography variant="h6">$0.00</Typography>
           </Box>
         </InfoContainer>
@@ -73,7 +79,9 @@ const PortfolioComponent = () => (
             <LayersIcon />
           </InfoIcon>
           <Box>
-            <Typography variant="body2">Currently Staked</Typography>
+            <Typography sx={{ color: "#FFA500" }} variant="body2">
+              Currently Staked
+            </Typography>
             <Typography variant="h6">$0.00</Typography>
           </Box>
         </InfoContainer>
@@ -84,7 +92,9 @@ const PortfolioComponent = () => (
             <AttachMoneyIcon />
           </InfoIcon>
           <Box>
-            <Typography variant="body2">Claimable Profit</Typography>
+            <Typography sx={{ color: "#FFA500" }} variant="body2">
+              Claimable
+            </Typography>
             <Typography variant="h6">$0.00</Typography>
           </Box>
         </InfoContainer>
@@ -95,7 +105,9 @@ const PortfolioComponent = () => (
             <AttachMoneyIcon />
           </InfoIcon>
           <Box>
-            <Typography variant="body2">Total Withdrawn</Typography>
+            <Typography sx={{ color: "#FFA500" }} variant="body2">
+              Total Withdrawn
+            </Typography>
             <Typography variant="h6">$0.00</Typography>
           </Box>
         </InfoContainer>
@@ -106,7 +118,9 @@ const PortfolioComponent = () => (
             <PercentIcon />
           </InfoIcon>
           <Box>
-            <Typography variant="body2">Active Stakes</Typography>
+            <Typography sx={{ color: "#FFA500" }} variant="body2">
+              Active Stakes
+            </Typography>
             <Typography variant="h6">0</Typography>
           </Box>
         </InfoContainer>
@@ -117,8 +131,10 @@ const PortfolioComponent = () => (
             <AccessTimeIcon />
           </InfoIcon>
           <Box>
-            <Typography variant="body2">Next Profit Distribution</Typography>
-            <Typography variant="h6">0D 0H 0M</Typography>
+            <Typography sx={{ color: "#FFA500" }} variant="body2">
+              Daily Reward
+            </Typography>
+            <Typography variant="h6">$1,000,000,00</Typography>
           </Box>
         </InfoContainer>
       </Grid>
@@ -126,7 +142,11 @@ const PortfolioComponent = () => (
     <Box
       sx={{
         display: "flex",
-        width: "80%",
+        width: {
+          xs: "100%", // 100% width on extra-small screens
+          sm: "100%", // 100% width on small screens
+          md: "80%", // 80% width on medium screens and up
+        },
         margin: "0 auto",
         borderRadius: "40px",
         backgroundColor: "#333",

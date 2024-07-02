@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Grid,
   InputAdornment,
   TextField,
   Typography,
@@ -56,10 +57,20 @@ const ButtonContainer = styled(Box)(({ theme }) => ({
 
 const StakeComponent = () => (
   <FormContainer>
-    <Box>
-      <Typography variant="h6">Stake</Typography>
-      <Typography variant="body2">Amount to Stake</Typography>
-    </Box>
+    <Grid container spacing={2}>
+      <Grid item sm={6} sx={{ padding: "10px", width: "100%" }}>
+        <Typography sx={{ color: "#FFA500" }} variant="h6">
+          Stake
+        </Typography>
+        <Typography variant="body2">Amount to Stake</Typography>
+      </Grid>
+      <Grid item sm={6} sx={{ padding: "10px", width: "100%" }}>
+        <Typography sx={{ color: "#FFA500" }} variant="h6">
+          Stake
+        </Typography>
+        <Typography variant="body2">Amount to Stake</Typography>
+      </Grid>
+    </Grid>
     <ButtonContainer>
       <StyledTextField
         variant="outlined"

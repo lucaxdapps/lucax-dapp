@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import BattleHighlights from "./parts/BattleHighlights";
 import ClaimPrize from "./parts/ClaimPrize";
@@ -29,16 +29,16 @@ const FormContainer = styled(Box)(({ theme }) => ({
 }));
 
 const BattleSummary = () => (
-  <Box sx={{ display: "flex" }}>
-    <Box sx={{ padding: "10px", width: "100%" }}>
+  <Grid container>
+    <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
       <Prize />
       <ClaimPrize />
-    </Box>
+    </Grid>
 
-    <Box sx={{ padding: "10px", width: "100%" }}>
+    <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
       <BattleHighlights />
-    </Box>
-  </Box>
+    </Grid>
+  </Grid>
 );
 
 export default BattleSummary;

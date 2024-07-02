@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Referral from "./parts/Referral";
 import Vault from "./parts/Vault";
@@ -28,15 +28,20 @@ const FormContainer = styled(Box)(({ theme }) => ({
 }));
 
 const VaultProcuderPanel = () => (
-  <Box sx={{ display: "flex" }}>
-    <Box sx={{ padding: "10px 0px", margin: "0px auto", width: "100%" }}>
+  <Grid container>
+    <Grid
+      item
+      sm={12}
+      md={6}
+      sx={{ padding: "10px 0px", margin: "0px auto", width: "100%" }}
+    >
       <Vault />
-    </Box>
+    </Grid>
 
-    <Box sx={{ padding: "10px", width: "100%" }}>
+    <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
       <Referral />
-    </Box>
-  </Box>
+    </Grid>
+  </Grid>
 );
 
 export default VaultProcuderPanel;
