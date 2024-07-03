@@ -3,20 +3,20 @@ import Members from "@/components/different/nfts/Members";
 import NFTs from "@/components/different/nfts/NFTs";
 import Reward from "@/components/different/nfts/Reward";
 import Royalty from "@/components/different/nfts/Royalty";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 const Nfts = () => {
   return (
     <MasterLayout>
-      <Box sx={{ display: "flex" }}>
-        <Box sx={{ padding: "10px", width: "100%" }}>
+      <Grid container spacing={2}>
+        <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
           <Reward />
-        </Box>
+        </Grid>
 
-        <Box sx={{ padding: "10px", width: "100%" }}>
+        <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
           <Members />
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
       <Box sx={{ padding: "10px", width: "100%" }}>
         <Royalty />
       </Box>

@@ -10,12 +10,12 @@ const HighlightsContainer = styled(Box)(({ theme }) => ({
   textAlign: "left",
 }));
 
-const Highlights = () => {
+const StakeHighlights = () => {
   return (
     <HighlightsContainer>
       <Grid container spacing={2}>
         <Grid item xs={6} md={3}>
-          <CardComponent title="TOTAL INVESTMENTS" value="$0" />
+          <CardComponent title="TOTAL DEPOSIT" value="$0" />
         </Grid>
         <Grid item xs={6} md={3}>
           <CardComponent title="TOTAL STAKED" value="$0" />
@@ -24,11 +24,11 @@ const Highlights = () => {
           <CardComponent title="TOTAL USERS" value="0" />
         </Grid>
         <Grid item xs={6} md={3}>
-          <CardComponent title="TOTAL WOLFPACKS" value="0" />
+          <CardComponent title="TOTAL VAULT PRODUCER" value="0" />
         </Grid>
       </Grid>
     </HighlightsContainer>
   );
 };
 
-export default Highlights;
+export default StakeHighlights;

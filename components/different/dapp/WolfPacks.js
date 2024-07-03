@@ -64,19 +64,19 @@ const WolfPacks = () => (
   <CardContainer>
     <ImageContainer>
       <img
-        src="/dapp/index/wolf-1.png"
-        alt="Wolfpack"
+        src="/dapp/index/wolf-3.png"
+        alt="Vault Producer"
         style={{ width: "100%" }}
       />
     </ImageContainer>
     <ContentContainer>
       <Typography variant="h3" style={{ fontWeight: "600" }}>
-        The Wolfpacks
+        The Vault Producer
       </Typography>
       <Typography variant="body1">
-        Explore the Wolfpacks and unite with other wolves to take advantage of
-        our unique team-staking model that takes yield generation to new
-        heights.
+        Explore the Vault Producer and unite with other producers to take
+        advantage of our unique team-staking model that takes yield generation
+        to new heights.
       </Typography>
       <Button variant="text" sx={{ color: "#1a73e8" }}>
         EXPLORE WOLFPACKS &gt;

@@ -13,11 +13,25 @@ const RaisedRoyaltyContainer = styled(Box)(({ theme }) => ({
   textAlign: "center",
 }));
 
-const Divider = styled(Box)(({ theme }) => ({
+const VerticalDivider = styled(Box)(({ theme }) => ({
   height: "100px", // Set a fixed height
   width: "1px",
   backgroundColor: "#686D76", // Use a visible color
   margin: theme.spacing(0, 2),
+  [theme.breakpoints.down("sm")]: {
+    display: "none", // Hide vertical divider on small screens
+  },
+}));
+
+const HorizontalDivider = styled(Box)(({ theme }) => ({
+  height: "1px",
+  width: "80%", // Adjust width as needed
+  backgroundColor: "#686D76", // Use a visible color
+  margin: theme.spacing(2, 0),
+  display: "none",
+  [theme.breakpoints.down("sm")]: {
+    display: "block", // Show horizontal divider on small screens
+  },
 }));
 
 const GradientLine = styled(Box)(({ theme }) => ({
@@ -30,12 +44,17 @@ const GradientLine = styled(Box)(({ theme }) => ({
 
 const Royalty = () => (
   <RaisedRoyaltyContainer>
-    <Box display="flex" justifyContent="space-around" alignItems="center">
+    <Box
+      sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" } }}
+      justifyContent="space-around"
+      alignItems="center"
+    >
       <Box>
         <Typography variant="h5">RAISED</Typography>
         <Typography variant="h3">$1,000,000.00</Typography>
       </Box>
-      <Divider />
+      <VerticalDivider />
+      <HorizontalDivider />
       <Box>
         <Typography variant="h5">ROYALTY POOL</Typography>
         <Typography variant="h3">$30,000.00</Typography>

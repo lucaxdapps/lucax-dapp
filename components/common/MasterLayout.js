@@ -1,7 +1,7 @@
 import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Highlights from "./Highlights";
 import SidebarDesktop from "./SidebarDesktop";
+import StakeHighlights from "./StakeHighlights";
 
 const drawerWidthOpen = 300;
 const drawerWidthClosed = 100;
@@ -32,7 +32,7 @@ const MasterLayout = ({ children }) => {
       {isLargeOrLarger && <SidebarDesktop />}
       <MainContainer>
         <ContentContainer>
-          <Highlights />
+          <StakeHighlights />
           {children}
         </ContentContainer>
       </MainContainer>

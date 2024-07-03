@@ -7,9 +7,6 @@ const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: "16px",
   boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
   transition: "transform 0.3s",
-  "&:hover": {
-    transform: "scale(1.05)",
-  },
   background:
     "linear-gradient(102.49deg, rgb(16, 16, 16) 4.28%, rgb(36, 36, 36) 61.94%)",
   border: "1px solid rgb(60, 60, 60)",
