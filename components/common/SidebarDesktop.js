@@ -1,6 +1,7 @@
 import {
   AccountBalanceWallet,
   AccountBalanceWalletOutlined,
+  BarChart,
   ChevronLeft,
   ChevronRight,
   Dashboard,
@@ -171,7 +172,7 @@ const SidebarDesktop = () => {
             >
               <ListItem button component="a">
                 <SidebarIcon>
-                  <AccountBalanceWallet />
+                  <BarChart />
                 </SidebarIcon>
                 {open && <ListItemText primary="Staking" />}
               </ListItem>
@@ -183,7 +184,7 @@ const SidebarDesktop = () => {
             >
               <ListItem button component="a">
                 <SidebarIcon>
-                  <Group />
+                  <AccountBalanceWallet />
                 </SidebarIcon>
                 {open && <ListItemText primary="Vault Producer" />}
               </ListItem>
@@ -210,6 +211,18 @@ const SidebarDesktop = () => {
                   <LocalOffer />
                 </SidebarIcon>
                 {open && <ListItemText primary="NFTs" />}
+              </ListItem>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/nfts/affiliate"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <Group />
+                </SidebarIcon>
+                {open && <ListItemText primary="Affiliates" />}
               </ListItem>
             </Link>
             <ListItem button onClick={handleExpandClick}>

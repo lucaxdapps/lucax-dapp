@@ -1,27 +1,24 @@
 import MasterLayout from "@/components/common/MasterLayout";
-import Members from "@/components/different/nfts/Members";
+import Collection from "@/components/different/nfts/Collection";
+import NFTOwned from "@/components/different/nfts/NFTOwned";
 import NFTs from "@/components/different/nfts/NFTs";
-import Reward from "@/components/different/nfts/Reward";
 import Royalty from "@/components/different/nfts/Royalty";
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Nfts = () => {
   return (
     <MasterLayout>
-      <Grid container spacing={2}>
-        <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
-          <Reward />
-        </Grid>
-
-        <Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
-          <Members />
-        </Grid>
-      </Grid>
-      <Box sx={{ padding: "10px", width: "100%" }}>
+      <Box sx={{ padding: "30px 0px 10px", width: "100%" }}>
+        <Collection />
+      </Box>
+      <Box sx={{ padding: "10px 0px", width: "100%" }}>
         <Royalty />
       </Box>
-      <Box sx={{ padding: "10px", width: "100%" }}>
+      <Box sx={{ padding: "10px 0px", width: "100%" }}>
         <NFTs />
+      </Box>
+      <Box sx={{ padding: "10px 0px", width: "100%" }}>
+        <NFTOwned />
       </Box>
     </MasterLayout>
   );

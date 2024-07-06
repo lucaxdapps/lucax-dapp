@@ -22,6 +22,12 @@
   height: 80%;
 }
 
+@media (max-width: 600px) {
+  .nft-owned-carousel {
+    height: 250px;
+  }
+}
+
 .carousel-card {
   position: absolute;
   cursor: pointer;
