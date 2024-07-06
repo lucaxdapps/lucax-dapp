@@ -8,6 +8,7 @@ import { styled } from "@mui/material/styles";
 const StakeContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+  justifyContent: "space-between",
   background:
     "linear-gradient(102.49deg, rgb(16, 16, 16) 4.28%, rgb(36, 36, 36) 61.94%)",
   border: "1px solid rgb(60, 60, 60)",
@@ -63,6 +64,8 @@ const StakePortfolio1 = () => (
           sm: "column",
           md: "row",
         },
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
       <Grid container spacing={2} sx={{ flex: 1 }}>
@@ -154,8 +157,8 @@ const StakePortfolio1 = () => (
             sm: "row",
             md: "column",
           },
-          justifyContent: "center",
-          marginTop: "16px",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
         <ActionButton>UNSTAKE</ActionButton>

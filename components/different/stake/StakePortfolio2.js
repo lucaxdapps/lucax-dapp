@@ -64,6 +64,8 @@ const StakePortfolio2 = () => (
           sm: "column",
           md: "row",
         },
+        justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
       <Grid container spacing={2} sx={{ flex: 1 }}>
@@ -155,8 +157,8 @@ const StakePortfolio2 = () => (
             sm: "row",
             md: "column",
           },
-          justifyContent: "center",
-          marginTop: "16px",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
         <ActionButton>UNSTAKE</ActionButton>
