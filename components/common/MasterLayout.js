@@ -29,6 +29,7 @@ const MasterLayout = ({ children }) => {
   const router = useRouter();
 
   const isNFTPage = router.pathname.includes("/dapp/nfts");
+  const isAffiliatePage = router.pathname.includes("/dapp/nfts/affiliate");
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -36,7 +37,8 @@ const MasterLayout = ({ children }) => {
       {isLargeOrLarger && <SidebarDesktop />}
       <MainContainer>
         <ContentContainer>
-          {isNFTPage ? <NFTHighlights /> : <StakeHighlights />}
+          {!isAffiliatePage &&
+            (isNFTPage ? <NFTHighlights /> : <StakeHighlights />)}
           {children}
         </ContentContainer>
       </MainContainer>
