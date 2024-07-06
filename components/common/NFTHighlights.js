@@ -10,7 +10,7 @@ const HighlightsContainer = styled(Box)(({ theme }) => ({
   textAlign: "left",
 }));
 
-const StakeHighlights = () => {
+const NFTHighlights = () => {
   return (
     <HighlightsContainer>
       <Grid container spacing={2}>
@@ -31,4 +31,4 @@ const StakeHighlights = () => {
   );
 };
 
-export default StakeHighlights;
+export default NFTHighlights;

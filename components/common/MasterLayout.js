@@ -1,5 +1,7 @@
 import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useRouter } from "next/router";
+import NFTHighlights from "./NFTHighlights";
 import SidebarDesktop from "./SidebarDesktop";
 import StakeHighlights from "./StakeHighlights";
 
@@ -12,8 +14,7 @@ const MainContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "#131313", // Dark background
   width: "100%",
   minHeight: "100vh",
-  padding: theme.spacing(3),
-  marginLeft: { sm: drawerWidthOpen, xs: drawerWidthClosed },
+  padding: theme.spacing(2),
   transition: "margin 0.3s",
 }));
 
@@ -25,6 +26,9 @@ const ContentContainer = styled(Box)(({ theme }) => ({
 const MasterLayout = ({ children }) => {
   const theme = useTheme();
   const isLargeOrLarger = useMediaQuery(theme.breakpoints.up("lg"));
+  const router = useRouter();
+
+  const isNFTPage = router.pathname.includes("/dapp/nfts");
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -32,7 +36,7 @@ const MasterLayout = ({ children }) => {
       {isLargeOrLarger && <SidebarDesktop />}
       <MainContainer>
         <ContentContainer>
-          <StakeHighlights />
+          {isNFTPage ? <NFTHighlights /> : <StakeHighlights />}
           {children}
         </ContentContainer>
       </MainContainer>

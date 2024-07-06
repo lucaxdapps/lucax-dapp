@@ -139,25 +139,6 @@ const PortfolioComponent = () => (
         </InfoContainer>
       </Grid>
     </Grid>
-    <Box
-      sx={{
-        display: "flex",
-        width: {
-          xs: "100%", // 100% width on extra-small screens
-          sm: "100%", // 100% width on small screens
-          md: "80%", // 80% width on medium screens and up
-        },
-        margin: "0 auto",
-        borderRadius: "40px",
-        backgroundColor: "#333",
-        padding: "8px",
-        justifyContent: "space-between",
-        marginTop: "16px",
-      }}
-    >
-      <ActionButton>UNSTAKE ALL</ActionButton>
-      <ActionButton>CLAIM</ActionButton>
-    </Box>
   </PortfolioContainer>
 );
 

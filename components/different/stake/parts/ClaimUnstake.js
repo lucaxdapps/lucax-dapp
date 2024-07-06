@@ -1,3 +1,5 @@
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import LayersIcon from "@mui/icons-material/Layers";
 import {
   Box,
   Button,
@@ -7,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
 
 const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -55,53 +58,44 @@ const ButtonContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const StakeComponent = () => (
+const ClaimUnstakeComponent = ({
+  title,
+  value,
+  onChange,
+  buttonText,
+  Icon,
+}) => (
   <FormContainer>
-    <Grid container spacing={3}>
-      <Grid item sm={6} sx={{ padding: "10px", width: "100%" }}>
+    <Grid container alignItems="center" spacing={1}>
+      <Grid item>{Icon && <Icon sx={{ color: "#fff" }} />}</Grid>
+      <Grid item>
         <Typography sx={{ color: "#FFA500" }} variant="h6">
-          Stake
+          {title}
         </Typography>
-        <Typography variant="body2">Amount to Stake</Typography>
-      </Grid>
-      <Grid
-        item
-        sm={6}
-        sx={{
-          padding: "10px",
-          width: "100%",
-          textAlign: {
-            xs: "left",
-            sm: "right",
-          },
-        }}
-      >
-        <Typography sx={{ color: "#FFA500" }} variant="h6">
-          Daily
-        </Typography>
-        <Typography variant="body2">1.5%</Typography>
       </Grid>
     </Grid>
     <ButtonContainer>
       <StyledTextField
         variant="outlined"
-        placeholder="0.00"
+        value={value}
+        onChange={onChange}
+        placeholder="3,000,000.00"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: "#FFA500",
+                  backgroundColor: "#FF4500",
                   color: "#fff",
                   borderRadius: "0 20px 20px 0",
                   height: "100%",
                   "&:hover": {
-                    backgroundColor: "#FFA500",
+                    backgroundColor: "#FF4500",
                   },
                 }}
               >
-                DEPOSIT
+                {buttonText}
               </Button>
             </InputAdornment>
           ),
@@ -111,4 +105,40 @@ const StakeComponent = () => (
   </FormContainer>
 );
 
-export default StakeComponent;
+const ClaimUnstake = () => {
+  const [unstakeValue, setUnstakeValue] = useState("");
+  const [claimValue, setClaimValue] = useState("");
+
+  const handleUnstakeChange = (e) => {
+    setUnstakeValue(e.target.value);
+  };
+
+  const handleClaimChange = (e) => {
+    setClaimValue(e.target.value);
+  };
+
+  return (
+    <Grid container spacing={2}>
+      <Grid item xs={12} md={6}>
+        <ClaimUnstakeComponent
+          title="Total Unstake Available"
+          value={unstakeValue}
+          onChange={handleUnstakeChange}
+          buttonText="- UNSTAKE ALL"
+          Icon={LayersIcon}
+        />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <ClaimUnstakeComponent
+          title="Total Claimable Reward"
+          value={claimValue}
+          onChange={handleClaimChange}
+          buttonText="- CLAIM ALL"
+          Icon={AttachMoneyIcon}
+        />
+      </Grid>
+    </Grid>
+  );
+};
+
+export default ClaimUnstake;
