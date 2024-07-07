@@ -1,6 +1,8 @@
 import MasterLayout from "@/components/common/MasterLayout";
 import NFTMembershipHighlights from "@/components/different/nft-affiliate/NFTMembershipHighlights";
 import NFTMembershipStatus from "@/components/different/nft-affiliate/NFTMembershipStatus";
+import NFTPendingClaim from "@/components/different/nft-affiliate/NFTPendingClaim";
+import NFTPowerLine from "@/components/different/nft-affiliate/NFTPowerline";
 import NFTReferral from "@/components/different/nft-affiliate/NFTReferral";
 import NFTRenewal from "@/components/different/nft-affiliate/NFTRenewal";
 import { Grid } from "@mui/material";
@@ -19,6 +21,8 @@ const affiliate = () => {
             <NFTReferral />
           </Grid>
         </Grid>
+        <NFTPendingClaim />
+        <NFTPowerLine />
       </MasterLayout>
     </div>
   );
