@@ -7,8 +7,9 @@ import {
   TextField,
   Tooltip,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -28,8 +29,7 @@ const FormContainer = styled(Box)(({ theme }) => ({
 const InfoContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  marginBottom: theme.spacing(2),
-  justifyContent: "space-between",
+  padding: theme.spacing(2),
 }));
 
 const InfoIconContainer = styled(Box)(({ theme }) => ({
@@ -68,54 +68,111 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   width: "100%",
 }));
 
-const Vault = () => (
-  <FormContainer>
-    <InfoContainer>
-      <Box>
-        <Typography variant="h6" sx={{ color: "#FFA500" }}>
-          Your Vault Producer
-        </Typography>
-        <Typography variant="body1">Mining Latam Global</Typography>
-      </Box>
-      <Box>
-        <Typography variant="h6" sx={{ color: "#FFA500" }}>
-          Total Staked
-        </Typography>
-        <Typography variant="body1">$ 1,000,000,000,000</Typography>
-      </Box>
-      <Tooltip title="Info">
-        <IconButton>
-          <InfoIcon sx={{ color: "#FFA500" }} />
-        </IconButton>
-      </Tooltip>
-    </InfoContainer>
-    <ButtonContainer>
-      <StyledTextField
-        variant="outlined"
-        placeholder="0.00"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#ffa500",
-                  color: "#fff",
-                  borderRadius: "0 20px 20px 0",
-                  height: "100%",
-                  "&:hover": {
-                    backgroundColor: "#dda500",
-                  },
-                }}
-              >
-                CONFIRM
-              </Button>
-            </InputAdornment>
-          ),
-        }}
-      />
-    </ButtonContainer>
-  </FormContainer>
-);
+const Vault = () => {
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.up("sm"));
+
+  return (
+    <FormContainer>
+      {isXs ? (
+        <InfoContainer
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" }, // Column for xs, row for sm and above
+            alignItems: { xs: "flex-start", sm: "center" }, // Align to the top on xs, center on sm and above
+            justifyContent: { xs: "flex-start", sm: "space-between" }, // Uniform spacing for sm and above
+            gap: { xs: 2, sm: 3 }, // Add uniform spacing between items
+          }}
+        >
+          <Box>
+            <Typography variant="h6" sx={{ color: "#FFA500" }}>
+              Your Vault Producer
+            </Typography>
+            <Typography variant="body1">Mining Latam Global</Typography>
+          </Box>
+          <Box>
+            <Typography variant="h6" sx={{ color: "#FFA500" }}>
+              Total Staked
+            </Typography>
+            <Typography variant="body1">$ 1,000,000,000,000</Typography>
+          </Box>
+          <Tooltip title="Info">
+            <IconButton
+              sx={{
+                alignSelf: { xs: "flex-start", sm: "center" }, // Align to the top on xs, center on sm and above
+              }}
+            >
+              <InfoIcon sx={{ color: "#FFA500" }} />
+            </IconButton>
+          </Tooltip>
+        </InfoContainer>
+      ) : (
+        <InfoContainer>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" }, // Column for xs, row for sm and above
+              alignItems: { xs: "flex-start", sm: "center" }, // Align to the top on xs and center on sm and above
+              gap: { xs: 1, sm: 2 }, // Add spacing between items
+              flex: 1, // Make the content box take all available space
+            }}
+          >
+            <Box sx={{ flex: 1 }}>
+              {" "}
+              {/* First box takes all available space */}
+              <Typography variant="h6" sx={{ color: "#FFA500" }}>
+                Your Vault Producer
+              </Typography>
+              <Typography variant="body1">Mining Latam Global</Typography>
+            </Box>
+            <Box>
+              <Typography variant="h6" sx={{ color: "#FFA500" }}>
+                Total Staked
+              </Typography>
+              <Typography variant="body1">$ 1,000,000,000,000</Typography>
+            </Box>
+          </Box>
+          <Tooltip title="Info">
+            <IconButton
+              sx={{
+                alignSelf: { xs: "flex-start", sm: "center" }, // Align to the top on xs, center on sm and above
+                marginTop: { xs: 1, sm: 0 }, // Add spacing from the top on xs
+              }}
+            >
+              <InfoIcon sx={{ color: "#FFA500" }} />
+            </IconButton>
+          </Tooltip>
+        </InfoContainer>
+      )}
+
+      <ButtonContainer>
+        <StyledTextField
+          variant="outlined"
+          placeholder="0.00"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <Button
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#ffa500",
+                    color: "#fff",
+                    borderRadius: "0 20px 20px 0",
+                    height: "100%",
+                    "&:hover": {
+                      backgroundColor: "#dda500",
+                    },
+                  }}
+                >
+                  CONFIRM
+                </Button>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </ButtonContainer>
+    </FormContainer>
+  );
+};
 
 export default Vault;
