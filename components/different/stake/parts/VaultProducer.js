@@ -52,17 +52,22 @@ const VaultProducerComponent = () => (
     <Box
       sx={{
         display: "flex",
+        flexDirection: { xs: "column", sm: "column", md: "row" }, // Column for xs and sm, row for md and larger
         justifyContent: "space-between",
         marginTop: "16px",
       }}
     >
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: 1, mb: { xs: "16px", sm: "16px", md: 0 } }}>
+        {" "}
+        {/* Add margin bottom for xs and sm */}
         <Typography variant="body2" sx={{ color: "#FFA500" }}>
           Name
         </Typography>
         <Typography variant="body1">Mining Latam Global</Typography>
       </Box>
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: 1, mb: { xs: "16px", sm: "16px", md: 0 } }}>
+        {" "}
+        {/* Add margin bottom for xs and sm */}
         <Typography variant="body2" sx={{ color: "#FFA500" }}>
           Member
         </Typography>

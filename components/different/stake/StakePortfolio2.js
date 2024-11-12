@@ -69,7 +69,7 @@ const StakePortfolio2 = () => (
       }}
     >
       <Grid container spacing={2} sx={{ flex: 1 }}>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={4}>
           <InfoContainer>
             <InfoIcon>
               <LayersIcon />
@@ -82,7 +82,7 @@ const StakePortfolio2 = () => (
             </Box>
           </InfoContainer>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={4}>
           <InfoContainer>
             <InfoIcon>
               <LayersIcon />
@@ -95,7 +95,7 @@ const StakePortfolio2 = () => (
             </Box>
           </InfoContainer>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={4}>
           <InfoContainer>
             <InfoIcon>
               <HourglassEmptyIcon />
@@ -108,7 +108,7 @@ const StakePortfolio2 = () => (
             </Box>
           </InfoContainer>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={4}>
           <InfoContainer>
             <InfoIcon>
               <AttachMoneyIcon />
@@ -121,7 +121,7 @@ const StakePortfolio2 = () => (
             </Box>
           </InfoContainer>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={4}>
           <InfoContainer>
             <InfoIcon>
               <AttachMoneyIcon />
@@ -134,7 +134,7 @@ const StakePortfolio2 = () => (
             </Box>
           </InfoContainer>
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={12} sm={4}>
           <InfoContainer>
             <InfoIcon>
               <ScheduleIcon />

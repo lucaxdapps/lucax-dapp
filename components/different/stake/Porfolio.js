@@ -60,7 +60,7 @@ const PortfolioComponent = () => (
       Your Staking Portfolio
     </Typography>
     <Grid container spacing={2}>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={12} sm={4}>
         <InfoContainer>
           <InfoIcon>
             <AttachMoneyIcon />
@@ -73,7 +73,7 @@ const PortfolioComponent = () => (
           </Box>
         </InfoContainer>
       </Grid>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={12} sm={4}>
         <InfoContainer>
           <InfoIcon>
             <LayersIcon />
@@ -86,7 +86,7 @@ const PortfolioComponent = () => (
           </Box>
         </InfoContainer>
       </Grid>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={12} sm={4}>
         <InfoContainer>
           <InfoIcon>
             <AttachMoneyIcon />
@@ -99,7 +99,7 @@ const PortfolioComponent = () => (
           </Box>
         </InfoContainer>
       </Grid>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={12} sm={4}>
         <InfoContainer>
           <InfoIcon>
             <AttachMoneyIcon />
@@ -112,7 +112,7 @@ const PortfolioComponent = () => (
           </Box>
         </InfoContainer>
       </Grid>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={12} sm={4}>
         <InfoContainer>
           <InfoIcon>
             <PercentIcon />
@@ -125,7 +125,7 @@ const PortfolioComponent = () => (
           </Box>
         </InfoContainer>
       </Grid>
-      <Grid item xs={6} sm={4}>
+      <Grid item xs={12} sm={4}>
         <InfoContainer>
           <InfoIcon>
             <AccessTimeIcon />

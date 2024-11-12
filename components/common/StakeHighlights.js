@@ -14,16 +14,16 @@ const StakeHighlights = () => {
   return (
     <HighlightsContainer>
       <Grid container spacing={2}>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={12} md={3}>
           <CardComponent title="TOTAL DEPOSIT" value="$9,401,098" />
         </Grid>
-        <Grid item sx={{ paddingRight: "10px" }} xs={6} md={3}>
+        <Grid item xs={12} md={3}>
           <CardComponent title="TOTAL STAKED" value="$7,099,464" />
         </Grid>
-        <Grid item xs={6} md={3}>
+        <Grid item xs={12} md={3}>
           <CardComponent title="TOTAL USERS" value="2,881" />
         </Grid>
-        <Grid item sx={{ paddingRight: "10px" }} xs={6} md={3}>
+        <Grid item xs={12} md={3}>
           <CardComponent title="TOTAL VAULT PRODUCER" value="210" />
         </Grid>
       </Grid>
