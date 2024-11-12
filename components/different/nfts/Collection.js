@@ -1,6 +1,13 @@
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Box, Button, Tab, Tabs, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import {
+  Box,
+  Button,
+  Tab,
+  Tabs,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 import React from "react";
 
 const Container = styled(Box)(({ theme }) => ({
@@ -39,6 +46,9 @@ const Collection = () => {
     setValue(newValue);
   };
 
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Container>
       <Box
@@ -46,8 +56,11 @@ const Collection = () => {
         justifyContent="space-between"
         alignItems="center"
         padding={3}
+        sx={{
+          flexDirection: { xs: "column-reverse", sm: "row" }, // Reverse column layout for smaller screens
+        }}
       >
-        <Box width="50%" paddingRight={2}>
+        <Box width={{ xs: "100%", sm: "50%" }} paddingRight={{ xs: 0, sm: 2 }}>
           <Typography
             sx={{ color: "#FFA500", fontWeight: "bold" }}
             variant="h4"
@@ -77,7 +90,7 @@ const Collection = () => {
           </Typography>
           <StyledButton startIcon={<ArrowBackIcon />}>RETURN</StyledButton>
         </Box>
-        <Box width="50%">
+        <Box width={{ xs: "100%", sm: "50%" }}>
           <img
             src="/dapp/nft/nft-cards.png"
             alt="NFT Cards"
@@ -85,6 +98,7 @@ const Collection = () => {
           />
         </Box>
       </Box>
+
       <GradientLine />
       <Box
         sx={{ marginBottom: "30px" }}
@@ -124,6 +138,22 @@ const Collection = () => {
           <Tab label="ROYALTIE POOL" />
         </Tabs>
       </Box>
+      {isXs && (
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            padding: "10px 20px",
+            justifyContent: "center",
+          }}
+        >
+          <img
+            src="/dapp/vaultProducer/arrow-right.png"
+            alt="Scroll Indicator"
+            style={{ width: "100%", maxWidth: "400px" }}
+          />
+        </Box>
+      )}
     </Container>
   );
 };
