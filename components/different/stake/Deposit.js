@@ -30,12 +30,12 @@ const FormContainer = styled(Box)(({ theme }) => ({
 
 const Deposit = () => (
   <Grid container spacing={2}>
-    <Grid item sm={6} md={6} sx={{ padding: "10px", width: "100%" }}>
+    <Grid item sm={6} md={6} sx={{ width: "100%" }}>
       <StakeComponent />
       <VaultProducerComponent />
     </Grid>
 
-    <Grid Grid item sm={12} md={6} sx={{ padding: "10px", width: "100%" }}>
+    <Grid Grid item sm={12} md={6} sx={{ width: "100%" }}>
       <CalculatorComponent />
     </Grid>
   </Grid>
