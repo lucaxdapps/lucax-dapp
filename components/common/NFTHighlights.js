@@ -12,7 +12,7 @@ const Container = styled(Box)(({ theme }) => ({
 }));
 
 const NFTGridItem = ({ title, value }) => (
-  <Grid item xs={6} md={4}>
+  <Grid item xs={12} md={4}>
     <Box display="flex" flexDirection="column" alignItems="flex-start">
       <Typography sx={{ color: "#FFA500" }} variant="h6">
         {title}
