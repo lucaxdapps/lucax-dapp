@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 
 const BattleWeekContainer = styled(Box)(({ theme }) => ({
   display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateColumns: "repeat(2, 1fr)", // Default two columns
   gap: "16px",
   padding: "60px 16px",
   background:
@@ -13,6 +13,10 @@ const BattleWeekContainer = styled(Box)(({ theme }) => ({
   borderRadius: "20px",
   color: "#fff",
   margin: "16px 0",
+  [theme.breakpoints.down("sm")]: {
+    gridTemplateColumns: "1fr", // Single column for smaller screens
+    padding: "30px 50px",
+  },
 }));
 
 const TextContainer = styled(Box)({

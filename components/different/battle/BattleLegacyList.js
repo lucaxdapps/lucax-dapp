@@ -10,6 +10,8 @@ import {
   TableHead,
   TableRow,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { useState } from "react";
 import "./parts/battle-legacy-list.css";
@@ -90,11 +92,23 @@ const BattlesLegacyList = () => {
     page * rowsPerPage
   );
 
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box className="battles-legacy-container">
       <Typography variant="h6" className="title-text">
         Battles Legacys
       </Typography>
+      {isXs && (
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+          <img
+            src="/dapp/vaultProducer/arrow-right.png"
+            alt="Scroll Indicator"
+            style={{ width: "100%", maxWidth: "400px" }}
+          />
+        </Box>
+      )}
       <TableContainer component={Paper} className="styled-table-container">
         <Table>
           <TableHead>

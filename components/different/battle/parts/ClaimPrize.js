@@ -11,14 +11,22 @@ const ClaimPrizesContainer = styled(Box)(({ theme }) => ({
   boxShadow: "rgba(0, 0, 0, 0.5) 5px 10px 15px",
   borderRadius: "20px",
   color: "#fff",
-  margin: "16px 0",
+  [theme.breakpoints.down("sm")]: {
+    alignItems: "flex-start",
+    flexDirection: "column",
+    padding: "20px 50px",
+  },
+  "& > *": {
+    paddingTop: theme.spacing(1.25), // 10px top padding
+    paddingBottom: theme.spacing(1.25), // 10px bottom padding
+  },
 }));
 
 const TextContainer = styled(Box)({
   flex: 3,
   display: "flex",
   flexDirection: "column",
-  justifyContent: "center",
+  justifyContent: "left",
   marginRight: "16px",
 });
 
