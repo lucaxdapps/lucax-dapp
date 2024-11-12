@@ -10,6 +10,8 @@ import {
 } from "@mui/icons-material";
 import {
   Box,
+  Button,
+  Divider,
   IconButton,
   List,
   ListItem,
@@ -55,6 +57,15 @@ const MenuButton = styled(IconButton)(({ theme }) => ({
   zIndex: 1600,
   "& .MuiSvgIcon-root": {
     fontSize: "2rem", // Increase hamburger size
+  },
+}));
+
+const SidebarButton = styled(Button)(({ theme }) => ({
+  margin: theme.spacing(1, 0),
+  backgroundColor: "#FFA500",
+  color: "#fff",
+  "&:hover": {
+    backgroundColor: "#185abc",
   },
 }));
 
@@ -111,6 +122,12 @@ const MobileMenu = ({ content }) => {
           </IconButton>
         </CloseButtonContainer>
         <List>
+          <ListItem button component="a">
+            <SidebarButton variant="contained" fullWidth>
+              Connect Wallet
+            </SidebarButton>
+          </ListItem>
+          <Divider />
           <Link
             style={{ textDecoration: "none", color: "#FFFFFF" }}
             href="/dapp/stake/#"
