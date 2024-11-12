@@ -1,6 +1,7 @@
 import { Box, CssBaseline, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useRouter } from "next/router";
+import MobileMenu from "./MobileMenu";
 import NFTHighlights from "./NFTHighlights";
 import SidebarDesktop from "./SidebarDesktop";
 import StakeHighlights from "./StakeHighlights";
@@ -37,6 +38,11 @@ const MasterLayout = ({ children }) => {
       {isLargeOrLarger && <SidebarDesktop />}
       <MainContainer>
         <ContentContainer>
+          {!isLargeOrLarger && (
+            <Box>
+              <MobileMenu />
+            </Box>
+          )}
           {!isAffiliatePage &&
             (isNFTPage ? <NFTHighlights /> : <StakeHighlights />)}
           {children}
