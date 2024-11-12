@@ -11,6 +11,8 @@ import {
   TableHead,
   TableRow,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { useState } from "react";
 import "./parts/producer-panel.css";
@@ -96,11 +98,23 @@ const VaultProducerList = () => {
     setPage(newPage);
   };
 
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box className="producer-panel-container">
       <Typography variant="h6" className="panel-title">
         Hot Vault Producer Panel
       </Typography>
+      {isXs && (
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+          <img
+            src="/dapp/vaultProducer/arrow-right.png"
+            alt="Scroll Indicator"
+            style={{ width: "100%", maxWidth: "400px" }}
+          />
+        </Box>
+      )}
       <TableContainer component={Paper} className="styled-table-container">
         <Table>
           <TableHead>
