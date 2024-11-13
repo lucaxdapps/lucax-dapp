@@ -7,8 +7,9 @@ import {
   TextField,
   Tooltip,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -69,56 +70,100 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   width: "100%", // Full width
 }));
 
-const NFTReferral = () => (
-  <FormContainer>
-    <InfoContainer>
-      <Box>
-        <Typography variant="h5" sx={{ color: "#FFA500" }}>
-          Personal Enrolled
-        </Typography>
-        <Typography variant="h6">12</Typography>
-      </Box>
-      <Box>
-        <Typography variant="h5" sx={{ color: "#FFA500" }}>
-          Total Members / Actives
-        </Typography>
-        <Typography variant="h6">
-          25 /{" "}
-          <span variant="h6" style={{ color: "#FFA500" }}>
-            20
-          </span>
-        </Typography>
-      </Box>
-      <Tooltip title="Info">
-        <IconButton>
-          <InfoIcon sx={{ color: "#FFFFFF" }} />
-        </IconButton>
-      </Tooltip>
-    </InfoContainer>
-    <ButtonContainer>
-      <StyledTextField
-        variant="outlined"
-        value="https://app.lucax.cc/dapp/?ref=0x347565476987605670867857"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Tooltip title="Copy to clipboard">
-                <IconButton
-                  onClick={() =>
-                    navigator.clipboard.writeText(
-                      "https://app.lucax.cc/dapp/?ref=0x347565476987605670867857"
-                    )
-                  }
-                >
-                  <ContentCopyIcon sx={{ color: "#ffa500" }} />
-                </IconButton>
-              </Tooltip>
-            </InputAdornment>
-          ),
-        }}
-      />
-    </ButtonContainer>
-  </FormContainer>
-);
+const NFTReferral = () => {
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+
+  return (
+    <FormContainer>
+      {isXs ? (
+        <Box sx={{ display: "flex", flex: 1, alignItems: "flex-start" }}>
+          <Box item>
+            <Box
+              sx={{
+                padding: "10px",
+                width: "100%",
+              }}
+            >
+              <Typography variant="h6" sx={{ color: "#FFA500" }}>
+                Personal Enrolled
+              </Typography>
+              <Typography variant="body1">12</Typography>
+            </Box>
+            <Box
+              sx={{
+                padding: "10px",
+                width: "100%",
+              }}
+            >
+              <Typography variant="h6" sx={{ color: "#FFA500" }}>
+                Total Members / Actives
+              </Typography>
+              <Typography variant="body1">
+                25 /{" "}
+                <span variant="h6" style={{ color: "#FFA500" }}>
+                  20
+                </span>
+              </Typography>
+            </Box>
+          </Box>
+          <Tooltip title="Info">
+            <IconButton>
+              <InfoIcon sx={{ color: "#FFFFFF" }} />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      ) : (
+        <InfoContainer>
+          <Box>
+            <Typography variant="h5" sx={{ color: "#FFA500" }}>
+              Personal Enrolled
+            </Typography>
+            <Typography variant="h6">12</Typography>
+          </Box>
+          <Box>
+            <Typography variant="h5" sx={{ color: "#FFA500" }}>
+              Total Members / Actives
+            </Typography>
+            <Typography variant="h6">
+              25 /{" "}
+              <span variant="h6" style={{ color: "#FFA500" }}>
+                20
+              </span>
+            </Typography>
+          </Box>
+          <Tooltip title="Info">
+            <IconButton>
+              <InfoIcon sx={{ color: "#FFFFFF" }} />
+            </IconButton>
+          </Tooltip>
+        </InfoContainer>
+      )}
+      <ButtonContainer>
+        <StyledTextField
+          variant="outlined"
+          value="https://app.lucax.cc/dapp/?ref=0x347565476987605670867857"
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <Tooltip title="Copy to clipboard">
+                  <IconButton
+                    onClick={() =>
+                      navigator.clipboard.writeText(
+                        "https://app.lucax.cc/dapp/?ref=0x347565476987605670867857"
+                      )
+                    }
+                  >
+                    <ContentCopyIcon sx={{ color: "#ffa500" }} />
+                  </IconButton>
+                </Tooltip>
+              </InputAdornment>
+            ),
+          }}
+        />
+      </ButtonContainer>
+    </FormContainer>
+  );
+};
 
 export default NFTReferral;

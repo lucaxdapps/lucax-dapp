@@ -9,8 +9,9 @@ import {
   TextField,
   Tooltip,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 
 const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -72,92 +73,133 @@ const ButtonContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const MembershipComponent = () => (
-  <FormContainer>
-    <Grid container spacing={3}>
-      <Grid item sm={5} sx={{ padding: "10px", width: "100%" }}>
-        <Typography sx={{ color: "#FFA500" }} variant="h6">
-          Membership Renewal
-        </Typography>
-        <Typography variant="body1">Select membership Renewal type</Typography>
-      </Grid>
-      <Grid
-        item
-        sm={5}
-        sx={{
-          padding: "10px",
-          width: "100%",
-        }}
-      >
-        <Typography sx={{ color: "#FFA500" }} variant="h6">
-          Membership Expire
-        </Typography>
-        <Typography variant="h6">21/08/2024</Typography>
-      </Grid>
-      <Grid
-        item
-        sm={2}
-        sx={{
-          padding: "10px",
-          width: "100%",
-          textAlign: {
-            xs: "left",
-            sm: "right",
-          },
-        }}
-      >
-        <Tooltip title="Info">
-          <IconButton>
-            <InfoIcon style={{ color: "#FFFFFF" }} />
-          </IconButton>
-        </Tooltip>
-      </Grid>
-    </Grid>
-    <ButtonContainer>
-      <StyledSelectField
-        select
-        variant="outlined"
-        defaultValue="OPEN - 12 Months: $149.97"
-        sx={{ flex: 1, marginRight: "8px" }} // Adjusted margin to separate the dropdown and the button
-        SelectProps={{
-          IconComponent: ArrowDropDownCircleOutlined,
-          MenuProps: {
-            PaperProps: {
-              sx: {
-                backgroundColor: "rgba(33, 33, 33, 1)", // Dark background for dropdown menu
+const MembershipComponent = () => {
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+
+  return (
+    <FormContainer>
+      {isXs ? (
+        <Box
+          sx={{ display: "flex", flex: 1, alignItems: "flex-start" }}
+          spacing={3}
+        >
+          <Box item>
+            <Box sx={{ padding: "10px", width: "100%" }}>
+              <Typography sx={{ color: "#FFA500" }} variant="h6">
+                Membership Renewal
+              </Typography>
+              <Typography variant="body1">
+                Select membership Renewal type
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                padding: "10px",
+                width: "100%",
+              }}
+            >
+              <Typography sx={{ color: "#FFA500" }} variant="h6">
+                Membership Expire
+              </Typography>
+              <Typography variant="h6">21/08/2024</Typography>
+            </Box>
+          </Box>
+          <Tooltip title="Info">
+            <IconButton>
+              <InfoIcon style={{ color: "#FFFFFF" }} />
+            </IconButton>
+          </Tooltip>
+        </Box>
+      ) : (
+        <Grid container spacing={3}>
+          <Grid item sm={5} sx={{ padding: "10px", width: "100%" }}>
+            <Typography sx={{ color: "#FFA500" }} variant="h6">
+              Membership Renewal
+            </Typography>
+            <Typography variant="body1">
+              Select membership Renewal type
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            sm={5}
+            sx={{
+              padding: "10px",
+              width: "100%",
+            }}
+          >
+            <Typography sx={{ color: "#FFA500" }} variant="h6">
+              Membership Expire
+            </Typography>
+            <Typography variant="h6">21/08/2024</Typography>
+          </Grid>
+          <Grid
+            item
+            sm={2}
+            sx={{
+              padding: "10px",
+              width: "100%",
+              textAlign: {
+                xs: "left",
+                sm: "right",
+              },
+            }}
+          >
+            <Tooltip title="Info">
+              <IconButton>
+                <InfoIcon style={{ color: "#FFFFFF" }} />
+              </IconButton>
+            </Tooltip>
+          </Grid>
+        </Grid>
+      )}
+      <ButtonContainer>
+        <StyledSelectField
+          select
+          variant="outlined"
+          defaultValue="OPEN - 12 Months: $149.97"
+          sx={{ flex: 1, marginRight: "8px" }} // Adjusted margin to separate the dropdown and the button
+          SelectProps={{
+            IconComponent: ArrowDropDownCircleOutlined,
+            MenuProps: {
+              PaperProps: {
+                sx: {
+                  backgroundColor: "rgba(33, 33, 33, 1)", // Dark background for dropdown menu
+                },
               },
             },
-          },
-        }}
-      >
-        <StyledMenuItem value="OPEN - 12 Months: $149.97">
-          OPEN - 12 Months: $149.97
-        </StyledMenuItem>
-        <StyledMenuItem value="PASS - 1 Month: $49.97">
-          PASS - 1 Month: $49.97
-        </StyledMenuItem>
-        <StyledMenuItem value="BLACK - 12 Months: $249.97">
-          BLACK - 12 Months: $249.97
-        </StyledMenuItem>
-        <StyledMenuItem value="LUXURY - 12 Months: $299.97">
-          LUXURY - 12 Months: $299.97
-        </StyledMenuItem>
-      </StyledSelectField>
-      <Button
-        variant="contained"
-        sx={{
-          backgroundColor: "#FFA500",
-          color: "#fff",
-          borderRadius: "20px",
-          "&:hover": {
+          }}
+        >
+          <StyledMenuItem value="OPEN - 12 Months: $149.97">
+            OPEN - 12 Months: $149.97
+          </StyledMenuItem>
+          <StyledMenuItem value="PASS - 1 Month: $49.97">
+            PASS - 1 Month: $49.97
+          </StyledMenuItem>
+          <StyledMenuItem value="BLACK - 12 Months: $249.97">
+            BLACK - 12 Months: $249.97
+          </StyledMenuItem>
+          <StyledMenuItem value="LUXURY - 12 Months: $299.97">
+            LUXURY - 12 Months: $299.97
+          </StyledMenuItem>
+        </StyledSelectField>
+        <Button
+          variant="contained"
+          sx={{
             backgroundColor: "#FFA500",
-          },
-        }}
-      >
-        PAY
-      </Button>
-    </ButtonContainer>
-  </FormContainer>
-);
+            color: "#fff",
+            borderRadius: "20px",
+            "&:hover": {
+              backgroundColor: "#FFA500",
+            },
+          }}
+        >
+          PAY
+        </Button>
+      </ButtonContainer>
+    </FormContainer>
+  );
+};
 
 export default MembershipComponent;
