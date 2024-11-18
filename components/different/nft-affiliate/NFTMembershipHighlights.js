@@ -34,9 +34,7 @@ const NFTGridItem = ({ title, value }) => (
 const NFTMembershipHighlights = () => {
   return (
     <Container style={{ marginRight: "10px", marginBottom: "20px" }}>
-      <StyledHeading>
-        Your No Bitcoin No Money Club NFT Membership
-      </StyledHeading>
+      <StyledHeading>Your NFTs Membership</StyledHeading>
       <Grid container spacing={2}>
         <NFTGridItem title="NFTS" value="0.00" />
         <NFTGridItem title="NET-WORTH" value="$0.00" />

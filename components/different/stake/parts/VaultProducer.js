@@ -29,7 +29,7 @@ const VaultProducerContainer = styled(Box)(({ theme }) => ({
 }));
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  color: "#FFA500", // orange color
+  color: "#FFA500",
   fontWeight: "bold",
 }));
 
@@ -43,7 +43,7 @@ const VaultProducerComponent = () => (
       }}
     >
       <StyledTypography variant="h6">Vault Producer</StyledTypography>
-      <Tooltip title="View your Wolfpack details here: the team's name, total members, and the collective stake amount. Keep track and observe your Wolfpack's growth.">
+      <Tooltip title="Info">
         <IconButton>
           <InfoIcon style={{ color: "#FFFFFF" }} />
         </IconButton>

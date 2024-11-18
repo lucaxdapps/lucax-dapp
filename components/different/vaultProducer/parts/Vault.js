@@ -111,10 +111,10 @@ const Vault = () => {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", sm: "row" }, // Column for xs, row for sm and above
-              alignItems: { xs: "flex-start", sm: "center" }, // Align to the top on xs and center on sm and above
-              gap: { xs: 1, sm: 2 }, // Add spacing between items
-              flex: 1, // Make the content box take all available space
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "flex-start", sm: "center" },
+              gap: { xs: 1, sm: 2 },
+              flex: 1,
             }}
           >
             <Box sx={{ flex: 1 }}>
@@ -135,8 +135,8 @@ const Vault = () => {
           <Tooltip title="Info">
             <IconButton
               sx={{
-                alignSelf: { xs: "flex-start", sm: "center" }, // Align to the top on xs, center on sm and above
-                marginTop: { xs: 1, sm: 0 }, // Add spacing from the top on xs
+                alignSelf: { xs: "flex-start", sm: "center" },
+                marginTop: { xs: 1, sm: 0 },
               }}
             >
               <InfoIcon sx={{ color: "#FFA500" }} />
@@ -148,7 +148,7 @@ const Vault = () => {
       <ButtonContainer>
         <StyledTextField
           variant="outlined"
-          placeholder="0.00"
+          placeholder="Set a Vault Name"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
