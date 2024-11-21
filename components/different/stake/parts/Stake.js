@@ -7,6 +7,9 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
+import ConfirmationDialog from "./ConfirmationDialog"; // Importing the dialog component
+import StakeLucaxDialog from "./StakeLucaxDialog";
 
 const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -39,7 +42,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
     padding: "8px",
     color: "#fff",
   },
-  width: "100%", // Full width
+  width: "100%",
 }));
 
 const ButtonContainer = styled(Box)(({ theme }) => ({
@@ -55,60 +58,94 @@ const ButtonContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
-const StakeComponent = () => (
-  <FormContainer>
-    <Grid container spacing={3}>
-      <Grid item xs={6} sx={{ padding: "10px", width: "100%" }}>
-        <Typography sx={{ color: "#FFA500" }} variant="h6">
-          Stake
-        </Typography>
-        <Typography variant="body2">Amount to Stake</Typography>
-      </Grid>
-      <Grid
-        item
-        xs={6}
-        sx={{
-          padding: "10px",
-          width: "100%",
-          textAlign: {
-            xs: "left",
-            sm: "right",
-          },
-        }}
-      >
-        <Typography sx={{ color: "#FFA500" }} variant="h6">
-          Daily
-        </Typography>
-        <Typography variant="body2">1.5%</Typography>
-      </Grid>
-    </Grid>
-    <ButtonContainer>
-      <StyledTextField
-        variant="outlined"
-        placeholder="0.00"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#FFA500",
-                  color: "#fff",
-                  borderRadius: "0 20px 20px 0",
-                  height: "100%",
-                  "&:hover": {
-                    backgroundColor: "#FFA500",
-                  },
-                }}
-              >
-                DEPOSIT
-              </Button>
-            </InputAdornment>
-          ),
-        }}
+const StakeComponent = () => {
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [isStakeLucaxOpen, setIsStakeLucaxOpen] = useState(false);
+
+  const handleConfirmationOpenDialog = () => {
+    setIsConfirmationOpen(true);
+  };
+
+  const handleConfirmationCloseDialog = () => {
+    setIsConfirmationOpen(false);
+  };
+  const handleStakeLucaxOpenDialog = () => {
+    setIsStakeLucaxOpen(true);
+  };
+
+  const handleStakeLucaxCloseDialog = () => {
+    setIsStakeLucaxOpen(false);
+  };
+
+  return (
+    <>
+      <FormContainer>
+        <Grid container spacing={3}>
+          <Grid item xs={6} sx={{ padding: "10px", width: "100%" }}>
+            <Typography sx={{ color: "#FFA500" }} variant="h6">
+              Stake
+            </Typography>
+            <Typography variant="body2">Amount to Stake</Typography>
+          </Grid>
+          <Grid
+            item
+            xs={6}
+            sx={{
+              padding: "10px",
+              width: "100%",
+              textAlign: {
+                xs: "left",
+                sm: "right",
+              },
+            }}
+          >
+            <Typography sx={{ color: "#FFA500" }} variant="h6">
+              Daily
+            </Typography>
+            <Typography variant="body2">1.5%</Typography>
+          </Grid>
+        </Grid>
+        <ButtonContainer>
+          <StyledTextField
+            variant="outlined"
+            placeholder="0.00"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "#FFA500",
+                      color: "#fff",
+                      borderRadius: "0 20px 20px 0",
+                      height: "100%",
+                      "&:hover": {
+                        backgroundColor: "#FFA500",
+                      },
+                    }}
+                    onClick={handleConfirmationOpenDialog}
+                  >
+                    DEPOSIT
+                  </Button>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </ButtonContainer>
+      </FormContainer>
+
+      {/* Dialog Component */}
+      <ConfirmationDialog
+        open={isConfirmationOpen}
+        onClose={handleConfirmationCloseDialog}
+        onOpenStakeLucaxDialog={handleStakeLucaxOpenDialog}
       />
-    </ButtonContainer>
-  </FormContainer>
-);
+      <StakeLucaxDialog
+        open={isStakeLucaxOpen}
+        onClose={handleStakeLucaxCloseDialog}
+      />
+    </>
+  );
+};
 
 export default StakeComponent;
