@@ -13,6 +13,7 @@ import {
   MoreHoriz,
   ReceiptLong,
   SportsEsports,
+  SwapHoriz,
   Telegram,
   WhatsApp,
   X,
@@ -279,6 +280,18 @@ const SidebarDesktop = () => {
                   <Group />
                 </SidebarIcon>
                 {open && <ListItemText primary="Affiliates" />}
+              </ListItem>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "#FFFFFF" }}
+              href="/dapp/swapper"
+              passHref
+            >
+              <ListItem button component="a">
+                <SidebarIcon>
+                  <SwapHoriz />
+                </SidebarIcon>
+                {open && <ListItemText primary="Swapper" />}
               </ListItem>
             </Link>
             {open && (
