@@ -65,7 +65,7 @@ const GreyLine = styled(Box)(({ theme }) => ({
   margin: "12px 0", // Adjusted margin for mobile
 }));
 
-const NFTCardMobile = ({ title, price, features }) => (
+const NFTCardMobile = ({ title, price, features, onMintClick }) => (
   <StyledCard>
     <CardContent>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -80,7 +80,7 @@ const NFTCardMobile = ({ title, price, features }) => (
       </Box>
       <Price>{price}</Price>
       <GradientLine />
-      <MintButton>MINT</MintButton>
+      <MintButton onClick={() => onMintClick(title)}>MINT</MintButton>
       <GreyLine />
       <Typography
         variant="h6"

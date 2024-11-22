@@ -1,12 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import MintNFTDialog from "./MintNFTDialog";
 import NFTCard from "./parts/NFTCard";
 import "./parts/NFTCarousel.css";
 
 const cardsData = [
   {
-    title: "PASS NFT Features",
+    title: "PASS NFT",
+    subTitle: "PASS NFT Features",
     price: "$49.97",
     features: [
       "Mint LUCAX / Vault Producer",
@@ -15,7 +17,8 @@ const cardsData = [
     ],
   },
   {
-    title: "OPEN NFT Features",
+    title: "OPEN NFT",
+    subTitle: "OPEN NFT Features",
     price: "$149.97",
     features: [
       "Mint LUCAX / Vaul Producer",
@@ -25,7 +28,8 @@ const cardsData = [
     ],
   },
   {
-    title: "BLACK NFT Features",
+    title: "BLACK NFT",
+    subTitle: "BLACK NFT Features",
     price: "$249.97",
     features: [
       "Mint LUCAX / Vaul Producer",
@@ -36,7 +40,8 @@ const cardsData = [
     ],
   },
   {
-    title: "LUXURY NFT Features",
+    title: "LUXURY NFT",
+    subTitle: "LUXURY NFT Features",
     price: "$299.97",
     features: [
       "Mint LUCAX / Vaul Producer",
@@ -61,6 +66,15 @@ const Container = styled(Box)(({ theme }) => ({
 
 const NFTs = () => {
   const [activeIndex, setActiveIndex] = useState(1);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedNFTTitle, setSelectedNFTTitle] = useState("");
+  const [selectedNFTPrice, setSelectedNFTPrice] = useState("");
+
+  const handleMintClick = (title, price) => {
+    setSelectedNFTTitle(title);
+    setSelectedNFTPrice(price);
+    setDialogOpen(true);
+  };
 
   const handleCardClick = (index) => {
     setActiveIndex(index);
@@ -111,14 +125,21 @@ const NFTs = () => {
               sx={{ ...getCardStyles(index) }}
             >
               <NFTCard
-                title={card.title}
+                title={card.subTitle}
                 price={card.price}
                 features={card.features}
+                onMintClick={() => handleMintClick(card.title, card.price)}
               />
             </Box>
           ))}
         </Box>
       </Box>
+      <MintNFTDialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        nftTitle={selectedNFTTitle}
+        nftPrice={selectedNFTPrice}
+      />
     </Container>
   );
 };

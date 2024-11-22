@@ -79,7 +79,7 @@ const GreyLine = styled(Box)(({ theme }) => ({
   margin: "16px 0", // Adjusted margin
 }));
 
-const NFTCard = ({ title, price, features }) => (
+const NFTCard = ({ title, price, features, onMintClick }) => (
   <StyledCard>
     <CardContent>
       <img
@@ -89,7 +89,7 @@ const NFTCard = ({ title, price, features }) => (
       />
       <Price>{price}</Price>
       <GradientLine />
-      <MintButton>MINT</MintButton>
+      <MintButton onClick={() => onMintClick(title)}>MINT</MintButton>
       <GreyLine />
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "8px" }}>
         {title}
