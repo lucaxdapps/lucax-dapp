@@ -107,13 +107,13 @@ const ConfirmationDialog = ({ open, onClose, onOpenStakeLucaxDialog }) => {
           <li>
             If you prefer not to lead a team, click on{" "}
             <span style={{ color: "#FFFFFF", fontWeight: "bold" }}>
-              “Vaults Board"
+              - Vaults Board
             </span>{" "}
             and join one.
           </li>
           <li>
             If you are ready to lead and create your own Vault Producer team,
-            press "Continue".
+            press - Continue.
           </li>
         </ul>
         <Box
