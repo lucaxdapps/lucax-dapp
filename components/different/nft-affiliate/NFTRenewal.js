@@ -12,6 +12,8 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
+import { useState } from "react";
+import NFTMembershipRenewalDialog from "./NFTMembershipRenewalDialog";
 
 const FormContainer = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -74,8 +76,24 @@ const ButtonContainer = styled(Box)(({ theme }) => ({
 }));
 
 const MembershipComponent = () => {
+  const [renewalDialogOpen, setRenewalDialogOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(
+    "OPEN - 12 Months: $149.97"
+  );
+  const [renewalDialogData, setRenewalDialogData] = useState({
+    title: "",
+    price: "",
+  });
+
   const theme = useTheme();
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const handlePayClick = () => {
+    const [title, details] = selectedOption.split(" - ");
+    const [, price] = details.split(": ");
+    setRenewalDialogData({ title, price });
+    setRenewalDialogOpen(true);
+  };
 
   return (
     <FormContainer>
@@ -159,6 +177,8 @@ const MembershipComponent = () => {
           select
           variant="outlined"
           defaultValue="OPEN - 12 Months: $149.97"
+          value={selectedOption} // Bind the state to the select field
+          onChange={(e) => setSelectedOption(e.target.value)}
           sx={{ flex: 1, marginRight: "8px" }} // Adjusted margin to separate the dropdown and the button
           SelectProps={{
             IconComponent: ArrowDropDownCircleOutlined,
@@ -186,6 +206,7 @@ const MembershipComponent = () => {
         </StyledSelectField>
         <Button
           variant="contained"
+          onClick={handlePayClick}
           sx={{
             backgroundColor: "#FFA500",
             color: "#fff",
@@ -197,6 +218,12 @@ const MembershipComponent = () => {
         >
           PAY
         </Button>
+        <NFTMembershipRenewalDialog
+          open={renewalDialogOpen}
+          onClose={() => setRenewalDialogOpen(false)}
+          title={renewalDialogData.title}
+          price={renewalDialogData.price}
+        />
       </ButtonContainer>
     </FormContainer>
   );
