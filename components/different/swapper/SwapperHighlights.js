@@ -128,7 +128,7 @@ const SwapperHighlights = () => {
         <InnerContainer>
           <LeftContent>
             <LogoContainer>
-              <StyledImage src="/dapp/swapper/usdt.png" alt="Wallet Icon" />
+              <StyledImage src="/dapp/swapper/usdt-icon.png" alt="USDT Icon" />
             </LogoContainer>
             <TextContainer>
               <Typography
