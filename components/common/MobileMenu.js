@@ -200,6 +200,18 @@ const MobileMenu = ({ content }) => {
               <ListItemText primary="Affiliates" />
             </MenuItem>
           </Link>
+          <Link
+            style={{ textDecoration: "none", color: "#FFFFFF" }}
+            href="/dapp/swapper"
+            passHref
+          >
+            <MenuItem button>
+              <ListItemIcon>
+                <Group sx={{ color: "#FFA500" }} />
+              </ListItemIcon>
+              <ListItemText primary="Affiliates" />
+            </MenuItem>
+          </Link>
         </List>
       </OverlayMenu>
     </>
