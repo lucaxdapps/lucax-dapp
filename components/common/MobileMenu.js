@@ -7,6 +7,7 @@ import {
   LocalOffer,
   Menu as MenuIcon,
   SportsEsports,
+  SwapHoriz,
 } from "@mui/icons-material";
 import {
   Box,
@@ -207,9 +208,9 @@ const MobileMenu = ({ content }) => {
           >
             <MenuItem button>
               <ListItemIcon>
-                <Group sx={{ color: "#FFA500" }} />
+                <SwapHoriz sx={{ color: "#FFA500" }} />
               </ListItemIcon>
-              <ListItemText primary="Affiliates" />
+              <ListItemText primary="Swapper" />
             </MenuItem>
           </Link>
         </List>
