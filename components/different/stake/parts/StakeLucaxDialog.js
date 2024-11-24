@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiPaper-root": {
@@ -81,6 +82,14 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const StakeLucaxDialog = ({ open, onClose, referrer = "" }) => {
+  const [referrerValue, setReferrerValue] = useState(referrer);
+
+  useEffect(() => {
+    if (open) {
+      setReferrerValue(referrer); // Reset value when dialog opens
+    }
+  }, [open, referrer]);
+
   return (
     <StyledDialog open={open} onClose={onClose}>
       <DialogTitle
@@ -160,7 +169,8 @@ const StakeLucaxDialog = ({ open, onClose, referrer = "" }) => {
           fullWidth
           label="Referrer (address)"
           placeholder="0x8VTSIUN7464HJDNSDU8948.caQv"
-          value={referrer} // Automatically fills if referrerName is passed
+          value={referrerValue}
+          onChange={(e) => setReferrerValue(e.target.value)} // Allow edits
         />
         <Typography
           variant="body2"
