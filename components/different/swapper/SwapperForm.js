@@ -21,13 +21,6 @@ const SwapperContainer = styled(Box)(({ theme }) => ({
   width: "100%",
 }));
 
-const HeadlineContainer = styled(Box)(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  marginBottom: theme.spacing(2),
-}));
-
 const Dropdown = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
     backgroundColor: "rgb(36, 36, 36)",
@@ -80,31 +73,44 @@ const SwapButton = styled(Button)(({ theme }) => ({
 }));
 
 const SwapperForm = () => {
+  const [sendOption, setSendOption] = useState("WBNB");
+  const [receiveOption, setReceiveOption] = useState("POINT+");
   const [sendValue, setSendValue] = useState(0);
   const [receiveValue, setReceiveValue] = useState(0);
+
+  const handleSendOptionChange = (e) => {
+    const selectedOption = e.target.value;
+    setSendOption(selectedOption);
+
+    // Set receive option based on the selected send option
+    if (selectedOption === "WBNB" || selectedOption === "USDT") {
+      setReceiveOption("POINT+");
+    } else if (selectedOption === "POINT+") {
+      setReceiveOption("USDT");
+    }
+  };
 
   const handleSendChange = (e) => {
     const value = parseFloat(e.target.value);
     setSendValue(value);
-    setReceiveValue(value * 1); // Example: 1:1 ratio
+
+    // Update receive value (1:1 ratio as an example)
+    setReceiveValue(value);
   };
 
   return (
     <SwapperContainer>
-      {/* Header */}
-      <HeadlineContainer>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <SwapHoriz
-            sx={{ color: "#FFFFFF", fontSize: 40, marginRight: "10px" }}
-          />
-          <Typography
-            variant="h6"
-            sx={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1.5rem" }}
-          >
-            SWAPPER
-          </Typography>
-        </Box>
-      </HeadlineContainer>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <SwapHoriz
+          sx={{ color: "#FFFFFF", fontSize: 40, marginRight: "10px" }}
+        />
+        <Typography
+          variant="h6"
+          sx={{ color: "#FFFFFF", fontWeight: "bold", fontSize: "1.5rem" }}
+        >
+          SWAPPER
+        </Typography>
+      </Box>
       <Divider sx={{ backgroundColor: "#fff", marginBottom: 2 }} />
 
       {/* First Dropdown */}
@@ -112,11 +118,13 @@ const SwapperForm = () => {
         select
         variant="outlined"
         fullWidth
-        value="WBNB"
+        value={sendOption}
+        onChange={handleSendOptionChange}
         sx={{ marginBottom: 2 }}
       >
         <MenuItem value="WBNB">WBNB</MenuItem>
-        <MenuItem value="USDC">USDC</MenuItem>
+        <MenuItem value="USDT">USDT</MenuItem>
+        <MenuItem value="POINT+">POINT+</MenuItem>
       </Dropdown>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Typography
@@ -131,7 +139,6 @@ const SwapperForm = () => {
           Amount to Send
         </Typography>
       </Box>
-
       {/* First Input */}
       <StyledInput
         variant="outlined"
@@ -142,9 +149,7 @@ const SwapperForm = () => {
         placeholder="0.00"
         sx={{ marginBottom: 2 }}
         inputProps={{
-          style: {
-            textAlign: "right", // Aligns the text to the right
-          },
+          style: { textAlign: "right" },
         }}
       />
 
@@ -166,10 +171,14 @@ const SwapperForm = () => {
         select
         variant="outlined"
         fullWidth
-        value="POINT+"
+        value={receiveOption}
         sx={{ marginBottom: 2 }}
+        inputProps={{
+          readOnly: true,
+        }}
       >
         <MenuItem value="POINT+">POINT+</MenuItem>
+        <MenuItem value="USDT">USDT</MenuItem>
       </Dropdown>
 
       {/* Second Input */}
@@ -181,9 +190,7 @@ const SwapperForm = () => {
         placeholder="0.00"
         inputProps={{
           readOnly: true,
-          style: {
-            textAlign: "right", // Aligns the text to the right
-          },
+          style: { textAlign: "right" },
         }}
         sx={{ marginBottom: 2 }}
       />
