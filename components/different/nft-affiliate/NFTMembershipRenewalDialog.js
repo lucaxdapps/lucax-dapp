@@ -155,7 +155,7 @@ const NFTMembershipRenewalDialog = ({ open, onClose, title, price }) => {
           >
             <MenuItem value="USDT">USDT</MenuItem>
             <MenuItem value="USDC">USDC</MenuItem>
-            <MenuItem value="USDC">WFDUSD</MenuItem>
+            <MenuItem value="WFDUSD">WFDUSD</MenuItem>
           </TextField>
         </Box>
         <Box
@@ -180,7 +180,8 @@ const NFTMembershipRenewalDialog = ({ open, onClose, title, price }) => {
             fullWidth
             type="number"
             variant="outlined"
-            placeholder="0.00"
+            value={price} // Set the value dynamically from the price variable
+            placeholder={price}
             sx={{
               flex: 1,
               border: "2px solid #d32f2f",
@@ -196,7 +197,8 @@ const NFTMembershipRenewalDialog = ({ open, onClose, title, price }) => {
               },
             }}
             inputProps={{
-              style: { textAlign: "right" }, // Ensures placeholder text is also right-aligned
+              readOnly: true, // Make the field read-only
+              style: { textAlign: "right" }, // Ensures placeholder text and value are right-aligned
             }}
           />
         </Box>
