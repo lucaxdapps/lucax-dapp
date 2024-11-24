@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 
 const StyledDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiPaper-root": {
@@ -38,6 +39,14 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const MintNFTDialog = ({ open, onClose, nftTitle, nftPrice }) => {
+  const [howManyNFT, setHowManyNFT] = useState(1); // Default value is 1
+  const [amountToSend, setAmountToSend] = useState(parseFloat(nftPrice || 0)); // Initial amount
+
+  useEffect(() => {
+    const price = parseFloat(nftPrice.replace(/[^0-9.]/g, "")) || 0; // Extract numeric price from nftPrice
+    setAmountToSend(howManyNFT * price);
+  }, [howManyNFT, nftPrice]);
+
   return (
     <StyledDialog open={open} onClose={onClose}>
       <DialogTitle
@@ -159,7 +168,7 @@ const MintNFTDialog = ({ open, onClose, nftTitle, nftPrice }) => {
             select
             fullWidth
             variant="outlined"
-            defaultValue="USDT"
+            defaultValue="POINT"
             sx={{
               flex: 1,
               border: "2px solid #d32f2f",
@@ -183,7 +192,7 @@ const MintNFTDialog = ({ open, onClose, nftTitle, nftPrice }) => {
             }}
           >
             <MenuItem value="USDT">USDT</MenuItem>
-            <MenuItem value="USDC">POINT</MenuItem>
+            <MenuItem value="POINT">POINT</MenuItem>
           </TextField>
         </Box>
         <Box
@@ -208,6 +217,11 @@ const MintNFTDialog = ({ open, onClose, nftTitle, nftPrice }) => {
             fullWidth
             type="number"
             variant="outlined"
+            value={howManyNFT}
+            onChange={(e) => {
+              const value = Math.max(1, parseInt(e.target.value, 10) || 1); // Ensure a minimum value of 1
+              setHowManyNFT(value);
+            }}
             placeholder="0.00"
             sx={{
               flex: 1,
@@ -250,6 +264,7 @@ const MintNFTDialog = ({ open, onClose, nftTitle, nftPrice }) => {
             fullWidth
             type="number"
             variant="outlined"
+            value={amountToSend.toFixed(2)} // Display amount with two decimal places
             placeholder="0.00"
             sx={{
               flex: 1,
@@ -266,6 +281,7 @@ const MintNFTDialog = ({ open, onClose, nftTitle, nftPrice }) => {
               },
             }}
             inputProps={{
+              readOnly: true, // Make the field read-only
               style: { textAlign: "right" }, // Ensures placeholder text is also right-aligned
             }}
           />
