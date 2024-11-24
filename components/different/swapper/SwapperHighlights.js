@@ -36,8 +36,6 @@ const LogoContainer = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   width: "80px",
   height: "80px",
-  backgroundColor: "#000",
-  borderRadius: "50%",
   marginBottom: theme.spacing(1),
 }));
 const TextContainer = styled(Box)(({ theme }) => ({
@@ -45,8 +43,6 @@ const TextContainer = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "flex-start",
   justifyContent: "center",
-  backgroundColor: "#000",
-  borderRadius: "50%",
   marginBottom: theme.spacing(1),
 }));
 
