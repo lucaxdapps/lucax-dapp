@@ -80,7 +80,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   padding: "10px 20px",
 }));
 
-const StakeLucaxDialog = ({ open, onClose }) => {
+const StakeLucaxDialog = ({ open, onClose, referrer = "" }) => {
   return (
     <StyledDialog open={open} onClose={onClose}>
       <DialogTitle
@@ -160,6 +160,7 @@ const StakeLucaxDialog = ({ open, onClose }) => {
           fullWidth
           label="Referrer (address)"
           placeholder="0x8VTSIUN7464HJDNSDU8948.caQv"
+          value={referrer} // Automatically fills if referrerName is passed
         />
         <Typography
           variant="body2"
